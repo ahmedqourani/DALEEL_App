@@ -1,4 +1,3 @@
-
 # Miscellaneous
 *.class
 *.log
@@ -13,49 +12,44 @@
 .swiftpm/
 migrate_working_dir/
 
-# IntelliJ and Android Studio
+# IntelliJ related
 *.iml
 *.ipr
 *.iws
 .idea/
 
-# VS Code
-# .vscode/
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
 
-# Flutter and Dart
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
 .dart_tool/
-.packages
+.flutter-plugins-dependencies
 .pub-cache/
 .pub/
-.flutter-plugins
-.flutter-plugins-dependencies
-**/doc/api/
-doc/api/
-build/
-.build/
-coverage/
-**/ios/Flutter/.last_build_id
+/build/
+/coverage/
 
-# Keep pubspec.lock tracked for Flutter applications
-# Do not add pubspec.lock to the ignore list
-
-# Environment variables and secrets
-.env
-.env.*
-!.env.example
-
-# Generated JavaScript and source maps
-*.dart.js
-*.info.json
-*.js_
-*.js.deps
-*.js.map
-
-# Symbolication and obfuscation
+# Symbolication related
 app.*.symbols
+
+# Obfuscation related
 app.*.map.json
 
-# Android build artifacts
+# Android Studio will place build artifacts here
 /android/app/debug
 /android/app/profile
 /android/app/release
+google-services.json
+
+# iOS Firebase configuration is supplied locally or through the CI environment.
+ios/Runner/GoogleService-Info.plist
+ios/Flutter/DalilFirebase.xcconfig
+
+__pycache__/
+*.jks
+*.keystore
+/android/key.properties
