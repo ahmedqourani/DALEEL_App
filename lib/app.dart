@@ -1,5 +1,5 @@
-
-
+import 'core/widgets/dalil_tour.dart';
+import 'core/widgets/theme_reveal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -16,10 +16,10 @@ import 'features/auth/screens/signup_screen.dart';
 import 'features/auth/screens/splash_screen.dart';
 
 
+import 'features/home/screens/categories_screen.dart';
+import 'features/home/screens/category_listings_screen.dart';
 
-
-
-
+import 'features/home/screens/shell_screen.dart';
 
 
 
@@ -42,11 +42,11 @@ class DalilApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = context.watch<ThemeProvider>().isDark;
-    return _DemoPassThrough(
+    return ThemeReveal(
       child: MaterialApp(
         title: AppStrings.appName,
         navigatorKey: dalilNavigatorKey,
-        
+        navigatorObservers: [dalilTourObserver],
         debugShowCheckedModeBanner: false,
         themeAnimationDuration: Duration.zero,
         theme: AppTheme.light,
@@ -79,11 +79,11 @@ class DalilApp extends StatelessWidget {
             case AppRoutes.resetEmailSent:
               return _page(const ResetEmailSentScreen(), settings);
             case AppRoutes.home:
-              return _page(const _PendingStageScreen(), settings);
+              return _page(const ShellScreen(), settings);
             case AppRoutes.categories:
-              return _page(const _PendingStageScreen(), settings);
+              return _page(const CategoriesScreen(), settings);
             case AppRoutes.categoryListings:
-              return _page(const _PendingStageScreen(), settings);
+              return _page(const CategoryListingsScreen(), settings);
             case AppRoutes.search:
               return _page(const _PendingStageScreen(), settings);
             case AppRoutes.listingDetails:
@@ -178,11 +178,4 @@ class _PendingStageScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(), body: const Center(child: Text('الجزء ده لسه في مرحلة تالية')));
-}
-
-class _DemoPassThrough extends StatelessWidget {
-  const _DemoPassThrough({required this.child});
-  final Widget child;
-  @override
-  Widget build(BuildContext context) => child;
 }
